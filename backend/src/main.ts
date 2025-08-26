@@ -1,4 +1,4 @@
-import { Socket } from "./adapters/socket/socket";
+import { Socket } from "./adapters/socket/Socket";
 import { createChatModule } from "./modules/chat";
 import { ChatSocket } from "./modules/chat/ChatSocket";
 import { createMessageModule } from "./modules/message";
