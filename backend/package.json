@@ -1,6 +1,5 @@
 {
   "name": "chat-app-server",
-  "type": "module",
   "scripts": {
     "dev": "tsx watch src/main.ts",
     "build": "tsc",
