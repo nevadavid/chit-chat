@@ -4,6 +4,7 @@
     "target": "esnext",
     "module": "commonjs",
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "esModuleInterop": true
   }
 }
