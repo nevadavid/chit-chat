@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import express from "express";
 
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || "3000", 10);
 
 export class Socket {
   readonly server: Server;
