@@ -9,7 +9,7 @@ type Params = {
 };
 
 export default function useSocket({
-  url = "ws://localhost:8080",
+  url = import.meta.env.VITE_SOCKET_SERVER,
   onConnect,
   onDisconnect,
   onEvent,
@@ -40,7 +40,7 @@ export default function useSocket({
       return;
     }
 
-    socketRef.current = io(url, options);
+    socketRef.current = io(url, { ...options, transports: ["websocket"] });
     hasConnected.current = true;
 
     addListeners();
