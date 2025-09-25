@@ -1,22 +1,12 @@
-import { useEffect, useState } from "react";
 import ChatMessage from "./ChatMessage";
-import type { Message, User } from "../App";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../store";
 
-type Props = {
-  messages: Message[];
-  currentUser: User;
-};
-
-export default function Chat({ messages, currentUser }: Props) {
-  const [, setNow] = useState(Date.now());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setNow(Date.now());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+export default function Chat() {
+  const currentUser = useSelector(
+    (state: RootState) => state.users.currentUser
+  );
+  const messages = useSelector((state: RootState) => state.chat.messages);
 
   return (
     <div className="flex flex-col-reverse h-full overflow-y-auto gap-4 p-4 bg-gray-100">

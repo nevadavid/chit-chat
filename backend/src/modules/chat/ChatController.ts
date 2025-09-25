@@ -36,13 +36,16 @@ export class ChatController {
   }
 
   message(content: string) {
-    const messages = this.chatService.message(this.socket.id, content);
+    const messages = this.chatService.message(
+      this.socket.handshake.auth.username,
+      content
+    );
 
     this.server.emit("message", messages);
   }
 
   disconnect() {
-    this.userService.remove(this.socket.id);
+    this.userService.remove(this.socket.handshake.auth.username);
 
     const users = this.userService.getAll();
 

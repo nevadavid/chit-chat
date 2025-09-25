@@ -8,7 +8,7 @@ export class MessageRepository {
   }
 
   getAll() {
-    return this.#messages;
+    return Array.from(this.#messages).sort((a, b) => b.timestamp - a.timestamp);
   }
 
   removeAll() {

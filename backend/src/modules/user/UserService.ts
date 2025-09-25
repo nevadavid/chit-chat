@@ -13,10 +13,11 @@ export class UserService {
     if (!name) {
       const readableName = generateReadableName();
       const isExist = !!this.userRepository.getByName(readableName);
+      const nameWithKey = isExist ? `${readableName}-${key}` : readableName;
 
-      return this.userRepository.create(key, {
+      return this.userRepository.create(nameWithKey, {
         id: key,
-        name: isExist ? `${readableName}-${key}` : readableName,
+        name: nameWithKey,
       });
     }
 
@@ -27,7 +28,7 @@ export class UserService {
     }
 
     if (name && !isExist) {
-      return this.userRepository.create(key, { id: key, name });
+      return this.userRepository.create(name, { id: key, name });
     }
   }
 
