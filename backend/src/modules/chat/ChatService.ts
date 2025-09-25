@@ -17,13 +17,13 @@ export class ChatService {
     this.userService = userService;
   }
 
-  connect(hash: string, name?: string) {
-    return this.userService.create(hash, name) as User;
+  connect(key: string, name?: string) {
+    return this.userService.create(key, name) as User;
   }
 
-  message(key: string, content: string) {
+  message(name: string, content: string) {
     const timestamp = Date.now();
-    const user = this.userService.get(key);
+    const user = this.userService.getByName(name);
 
     if (!user) {
       return;

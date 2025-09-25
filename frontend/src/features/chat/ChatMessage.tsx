@@ -1,5 +1,5 @@
-import { cls } from "../utils";
-import TimeAgo from "./TimeAgo";
+import { cls } from "../../utils";
+import { ChatMessageTimeAgo } from "./ChatMessageTimeAgo";
 
 type Props = {
   title: string;
@@ -19,7 +19,7 @@ export default function ChatMessage({
       <div className="flex justify-between gap-1">
         {!isOwn && <div className="text-xs ml-2">{title}</div>}
         <div className="text-xs ml-auto mr-2">
-          <TimeAgo timestamp={timestamp} />
+          <ChatMessageTimeAgo timestamp={timestamp} />
         </div>
       </div>
       <div

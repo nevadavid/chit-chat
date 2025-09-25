@@ -1,12 +1,10 @@
-import { formatDistanceToNow } from "date-fns";
+import { formatDistance } from "date-fns";
 
 type Props = {
+  now: number;
   timestamp: number;
 };
 
-const getTimeAgo = (timestamp: number) =>
-  formatDistanceToNow(timestamp, { addSuffix: true });
-
-export default function TimeAgo({ timestamp }: Props) {
-  return getTimeAgo(timestamp);
+export default function TimeAgo({ now, timestamp }: Props) {
+  return formatDistance(now, timestamp);
 }
